@@ -20,7 +20,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Chat extends AppCompatActivity {
-    private String baseURL = "https://lucky-turkey-78.loca.lt/";
+    private String baseURL = "https://tidy-falcon-37.loca.lt/";
     ImageButton send;
     EditText edtxt;
     RecyclerView rv;

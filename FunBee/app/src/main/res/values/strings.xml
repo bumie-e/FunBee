@@ -3,5 +3,7 @@
     <string name="title_activity_fun_time">FunBee</string>
     <string name="title_home">Chat</string>
     <string name="title_dashboard">Games</string>
+    <string name="title_chat">Chat</string>
+    <string name="title_profile">Profile</string>
     <string name="title_notifications">Call</string>
 </resources>

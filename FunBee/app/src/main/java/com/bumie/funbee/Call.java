@@ -9,6 +9,7 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -84,6 +85,9 @@ public class Call extends AppCompatActivity {
         rejectCallButton.setOnClickListener(view -> { rejectCall();});
         endCallButton.setOnClickListener(view -> { endCall();});
 
+        SharedPreferences sh = getSharedPreferences("User", MODE_PRIVATE);
+        Boolean value = sh.getBoolean("user", false);
+        user(value);
     }
     @SuppressLint("MissingPermission")
     private void startCall() {
@@ -211,5 +215,14 @@ public class Call extends AppCompatActivity {
         otherUser = "Alice";
 
         client.login("eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTg1ODU5NDcsImp0aSI6IjI4MGM5YWMwLTllYzYtMTFlYi1hNmQyLWNkNDI3Y2YzMWM1ZCIsImV4cCI6MTYxODY3MjM0MCwiYWNsIjp7InBhdGhzIjp7Ii8qL3VzZXJzLyoqIjp7fSwiLyovY29udmVyc2F0aW9ucy8qKiI6e30sIi8qL3Nlc3Npb25zLyoqIjp7fSwiLyovZGV2aWNlcy8qKiI6e30sIi8qL2ltYWdlLyoqIjp7fSwiLyovbWVkaWEvKioiOnt9LCIvKi9hcHBsaWNhdGlvbnMvKioiOnt9LCIvKi9wdXNoLyoqIjp7fSwiLyova25vY2tpbmcvKioiOnt9LCIvKi9sZWdzLyoqIjp7fX19LCJzdWIiOiJCb2IiLCJhcHBsaWNhdGlvbl9pZCI6ImQwZWE5MGZhLTYxNDktNDdiNi1hMGQwLTI5ZTMzNTI3OTM0NyJ9.3t2Ejtv__uS1Hpux5bnOnJB8Htq_vJ7xZimcxsHja0p6k7miAHsBPgc85yGkcs3CK86Y-4_cSHPlcIiLWem0H0Fjn6VPt4F2KW1lFM3sHKakb4CbGUkHecd5Yf1uK8st2ztYqRtMdW7tv-gfBQLDACGwPbjaMwRirGZLY7Z3oCEqwB8bqMF2fdjUHNbqHJTfdHaM-yIxH46tCvRs_tmXenA2U9t3CnKGDQps-jmG1y6mP5DPGjyFOEOPkYLcDjHOe8JerM1kZwcEAPm8EaSQ_gI6hADkojEqGWBG7DmBxh2vUcWM7yXbSQo9ezxzYscao1LUH14atuNzMdEvPTJ9Ew");
+    }
+    public void user(Boolean value){
+
+        if (value == true){
+            loginAsAlice();
+        }
+        else{
+            loginAsBob();
+        }
     }
 }
